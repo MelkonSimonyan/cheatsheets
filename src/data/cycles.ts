@@ -23,7 +23,7 @@ export const site: Site = {
           thumb: "/posts/webfundamentals/01-how-the-web-works.webp",
           text: "/posts/webfundamentals/01-how-the-web-works.txt",
           pdf: "/pdf/webfundamentals/01-how-the-web-works.pdf",
-          linkedin: "https://www.linkedin.com/",
+          linkedin: "",
         },
       ],
     },
