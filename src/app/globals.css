@@ -376,8 +376,9 @@ h1 {
 .next {
   margin-top: 48px;
   display: flex;
-  align-items: center;
-  gap: 16px;
+  align-items: baseline;
+  column-gap: 16px;
+  row-gap: 8px;
   flex-wrap: wrap;
   padding: 18px 22px;
   border-radius: 18px;
