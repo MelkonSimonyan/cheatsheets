@@ -39,5 +39,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: out/*
           strip_components: 1
-          target: /htdocs/cheatsheets.melkonsimonyan.com/
+          target: /home/cheatsheets/htdocs/cheatsheets.melkonsimonyan.com/
           overwrite: true

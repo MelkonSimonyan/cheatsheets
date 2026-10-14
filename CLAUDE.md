@@ -87,7 +87,7 @@ is ready to upload:
 - Upload the CONTENTS of `out/` (with `trailingSlash: true` every route is a folder with `index.html`).
 - Deploy: GitHub Actions (`.github/workflows/deploy.yml`) builds `out/` on the runner on push to `main` and uploads it
   with `appleboy/scp-action` over SSH (same action family as the owner's other projects) as a dedicated CloudPanel SSH
-  user (name in the `SSH_USER` secret; key auth, never root). Target: `/htdocs/cheatsheets.melkonsimonyan.com/`.
+  user (name in the `SSH_USER` secret; key auth, never root). Target: `/home/cheatsheets/htdocs/cheatsheets.melkonsimonyan.com/`.
   Repository secrets: `SSH_HOST`, `SSH_PORT` (optional), `SSH_USER`, `SSH_PRIVATE_KEY`. Nothing is built or run on the
   server. Old files are not removed automatically (no `--delete`).
   History: SFTP with the FTP user failed (`EOF during negotiation`), FTPS was refused (`500 AUTH not understood`),
