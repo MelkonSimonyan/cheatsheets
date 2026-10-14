@@ -86,8 +86,8 @@ is ready to upload:
 - Subdomain `cheatsheets.melkonsimonyan.com` points to its own folder on the owner's hosting, HTTPS on.
 - Upload the CONTENTS of `out/` (with `trailingSlash: true` every route is a folder with `index.html`).
 - Deploy: GitHub Actions (`.github/workflows/deploy.yml`) builds on push to `main` and uploads `out/` via plain FTP
-  (explicit FTPS, port 21, `SamKirkland/FTP-Deploy-Action`). SFTP on port 22 did not work with the FTP user
-  (`EOF during negotiation`). Repository secrets: `FTP_HOST`, `FTP_USERNAME`, `FTP_PASSWORD`. `server-dir` is `./`,
+  (plain FTP, port 21, `SamKirkland/FTP-Deploy-Action`). SFTP on port 22 did not work with the FTP user
+  (`EOF during negotiation`) and FTPS was refused by the server (`500 AUTH not understood`). Repository secrets: `FTP_HOST`, `FTP_USERNAME`, `FTP_PASSWORD`. `server-dir` is `./`,
   i.e. the FTP user's home, which is the site folder. The action keeps `.ftp-deploy-sync-state.json` on the server
   and removes files that disappeared from `out/`.
 
