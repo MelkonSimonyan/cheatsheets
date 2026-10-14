@@ -65,8 +65,10 @@ it matches `style.css` of the LinkedIn project. Do not redesign.
    (`convert in.png -resize 600x750 -quality 82 out.webp`, or Pillow). Aim for about 50 KB.
    Put the text next to it as `public/posts/<cycle-folder>/NN-slug.txt`.
 3. Copy the PDF to `public/pdf/<cycle-folder>/NN-slug.pdf` (same file name as in the LinkedIn project).
-4. Add one entry to `posts` in `src/data/cycles.ts` (`thumb`, `text`, `pdf`, `linkedin`) with the real LinkedIn URL
-   (it exists only after the post is published).
+4. Add one entry to `posts` in `src/data/cycles.ts` (`thumb`, `text`, `pdf`) with an EMPTY `linkedin` first: the post is
+   not listed yet, but the files are deployed. Push and wait for the green deploy BEFORE publishing on LinkedIn, so the
+   PDF link in the first comment works the moment readers see the post.
+   After publishing, put the real LinkedIn URL into `linkedin` and push again (that makes the card appear).
 5. When a cycle ends: copy the magazine PDF to `public/pdf/<cycle-folder>/<Cycle>-Cheat-Sheet.pdf` and set `magazine`.
    When a new cycle starts: add the cycle object, and update `next`.
 6. Run the full final check below, then upload the contents of `out/`.
