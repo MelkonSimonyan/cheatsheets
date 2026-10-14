@@ -85,10 +85,11 @@ is ready to upload:
 ## Deployment
 - Subdomain `cheatsheets.melkonsimonyan.com` points to its own folder on the owner's hosting, HTTPS on.
 - Upload the CONTENTS of `out/` (with `trailingSlash: true` every route is a folder with `index.html`).
-- Deploy: GitHub Actions (`.github/workflows/deploy.yml`) builds on push to `main` and uploads `out/` via SFTP (port 22,
-  `wangyucode/sftp-upload-action`, same approach as the owner's other VPS projects). Repository secrets: `FTP_HOST`,
-  `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_REMOTE_DIR` (absolute path of the subdomain folder, with a trailing `/`).
-  `removeExtraFilesOnServer` is on: the server folder mirrors `out/`, so it must be dedicated to this site.
+- Deploy: GitHub Actions (`.github/workflows/deploy.yml`) builds on push to `main` and uploads `out/` via plain FTP
+  (explicit FTPS, port 21, `SamKirkland/FTP-Deploy-Action`). SFTP on port 22 did not work with the FTP user
+  (`EOF during negotiation`). Repository secrets: `FTP_HOST`, `FTP_USERNAME`, `FTP_PASSWORD`. `server-dir` is `./`,
+  i.e. the FTP user's home, which is the site folder. The action keeps `.ftp-deploy-sync-state.json` on the server
+  and removes files that disappeared from `out/`.
 
 ## Don'ts
 - No dates, no "Day N", no "learn in N days". Do not present upcoming posts as if they were ready.
