@@ -85,11 +85,13 @@ is ready to upload:
 ## Deployment
 - Subdomain `cheatsheets.melkonsimonyan.com` points to its own folder on the owner's hosting, HTTPS on.
 - Upload the CONTENTS of `out/` (with `trailingSlash: true` every route is a folder with `index.html`).
-- Deploy: GitHub Actions (`.github/workflows/deploy.yml`) builds on push to `main` and uploads `out/` with rsync over SSH
-  as a dedicated CloudPanel SSH user (name in the `SSH_USER` secret; key auth, never root). Target:
-  `/home/cheatsheets/htdocs/cheatsheets.melkonsimonyan.com/`, mirrored with `--delete`, so the folder is dedicated to
-  this site. Repository secrets: `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY`, `SSH_KNOWN_HOSTS`.
-  History: SFTP with the FTP user failed (`EOF during negotiation`), FTPS was refused (`500 AUTH not understood`).
+- Deploy: GitHub Actions (`.github/workflows/deploy.yml`) builds `out/` on the runner on push to `main` and uploads it
+  with `appleboy/scp-action` over SSH (same action family as the owner's other projects) as a dedicated CloudPanel SSH
+  user (name in the `SSH_USER` secret; key auth, never root). Target: `/htdocs/cheatsheets.melkonsimonyan.com/`.
+  Repository secrets: `SSH_HOST`, `SSH_PORT` (optional), `SSH_USER`, `SSH_PRIVATE_KEY`. Nothing is built or run on the
+  server. Old files are not removed automatically (no `--delete`).
+  History: SFTP with the FTP user failed (`EOF during negotiation`), FTPS was refused (`500 AUTH not understood`),
+  rsync hung with no output.
 
 ## Don'ts
 - No dates, no "Day N", no "learn in N days". Do not present upcoming posts as if they were ready.
