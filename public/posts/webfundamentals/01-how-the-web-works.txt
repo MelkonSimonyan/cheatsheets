@@ -1,0 +1,39 @@
+🎯 Web Fundamentals Cheat Sheet · 01/7: How the Web Works
+
+What happens when you enter a URL in your browser? 🤔
+
+The web is a client-server system: a browser (the client) asks a server for resources identified by URLs, over HTTP 👇
+
+1️⃣ How it works, in order
+→ Parse the URL: scheme, host, port, path, query, #fragment
+→ DNS: the host name becomes an IP address
+→ TCP: a three-way handshake opens a connection
+→ TLS (https): the server proves its identity, both sides agree on keys
+→ HTTP: GET /cart?id=7 plus a Host header, then status and HTML back
+→ The browser parses the HTML and requests CSS, JS, images
+
+2️⃣ Key features
+→ Default ports (80 http, 443 https) are left out of the URL
+→ The #fragment is never sent to the server
+→ HTTP is stateless: each request stands alone
+→ Persistent connections are reused: later requests skip TCP and TLS
+→ HTTP/3 runs on QUIC over UDP, with TLS 1.3 built in
+
+3️⃣ Common pitfalls
+→ A fast server can still feel slow: DNS, TCP and TLS add round trips first
+→ A changed DNS record keeps resolving to the old IP until cached answers expire
+
+My rule: name to IP, connect, secure, then ask.
+
+🧠 Bonus trap: what happens here?
+
+"https://shop.dev:8443/cart?id=7#top"
+
+Which request line and Host does the server get?
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 02/7 — HTTP & HTTPS
+
+#webfundamentals #frontend #webdevelopment #interviewprep #WebFundamentalsCheatSheet
