@@ -26,7 +26,7 @@ When a cycle is finished, a PDF magazine with all its pages is offered for downl
 
 - [Next.js](https://nextjs.org/) (App Router) with **static export**: the build is plain HTML, CSS and files, no Node server
 - TypeScript (strict), React server components only
-- Plain CSS, local fonts through `next/font/local`, previews as pre-sized WebP
+- Plain CSS, Google Fonts through `next/font/google` (self-hosted at build time), previews as pre-sized WebP
 - All content is data in a single typed file, no CMS and no database
 
 ## Project structure
@@ -35,7 +35,6 @@ When a cycle is finished, a PDF magazine with all its pages is offered for downl
 src/app/            layout, the single page, global styles
 src/components/     CycleSection, PostCard, SoonCard
 src/data/           types.ts and cycles.ts (the content)
-src/fonts/          Inter and JetBrains Mono
 public/thumbs/      post previews, WebP 600x750
 public/pdf/         printable PDFs and cycle magazines
 ```

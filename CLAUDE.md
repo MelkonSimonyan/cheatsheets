@@ -20,7 +20,7 @@ comment of each LinkedIn post, so this site is where those links point.
   HTML/CSS/files to `out/`, which is uploaded to ordinary static hosting. No Node server, no API routes, no database.
 - Server components by default. `"use client"` only for `PostModal` (popup with history handling). No client-side data fetching except the lazy `fetch` of a post's `.txt` in that popup (80 posts: texts are not inlined into the HTML).
 - All content lives in ONE file: `src/data/cycles.ts` (typed by `src/data/types.ts`). Components only render it.
-- Plain CSS in `src/app/globals.css` (no Tailwind, no CSS-in-JS). Fonts are local via `next/font/local` (`src/fonts/`).
+- Plain CSS in `src/app/globals.css` (no Tailwind, no CSS-in-JS). Fonts come from Google Fonts via `next/font/google` (downloaded at build time and self-hosted in `out/`, no runtime request to Google).
 - Images use `next/image` with `unoptimized: true` (required for static export); previews are pre-resized WebP.
 - Dependencies are deliberately few: next, react, react-dom, typescript and types. Do not add libraries without asking.
 - History: the site was first prototyped in PHP; the owner switched to Next.js static export for the portfolio.
@@ -28,7 +28,7 @@ comment of each LinkedIn post, so this site is where those links point.
 
 ## Files
 ```
-src/app/layout.tsx        root layout, local fonts, metadata (title, description, Open Graph)
+src/app/layout.tsx        root layout, Google fonts, metadata (title, description, Open Graph)
 src/app/page.tsx          the single page: header, cycles, "next cycle" row, footer
 src/app/globals.css       all styles (design tokens in :root)
 src/app/icon.svg, apple-icon.png, favicon.ico   favicons (Next.js file convention)
@@ -37,7 +37,6 @@ src/components/           CycleSection (group), PostCard, PostModal (client popu
 src/data/types.ts         Post, Cycle, Site types
 src/data/cycles.ts        THE CONTENT. Edit this to add posts
 src/lib.ts                small helpers (pad, isPublished, publishedPosts)
-src/fonts/                Inter (otf), JetBrains Mono (woff2)
 public/posts/<cycle>/     previews and texts: NN-slug.webp (WebP 600x750, 4:5) and NN-slug.txt (post text for the popup)
 public/pdf/<cycle>/       PDFs: NN-slug.pdf and <Cycle>-Cheat-Sheet.pdf (magazine). Created as posts are published
 docs/                     screenshots for the README

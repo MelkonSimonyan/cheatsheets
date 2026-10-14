@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = localFont({
-  src: [
-    { path: "../fonts/Inter-Regular.otf", weight: "400" },
-    { path: "../fonts/Inter-SemiBold.otf", weight: "600" },
-    { path: "../fonts/Inter-Bold.otf", weight: "700" },
-    { path: "../fonts/Inter-ExtraBold.otf", weight: "800" },
-    { path: "../fonts/Inter-Black.otf", weight: "900" },
-  ],
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800", "900"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const mono = localFont({
-  src: [
-    { path: "../fonts/jetbrains-mono-latin-500-normal.woff2", weight: "500" },
-    { path: "../fonts/jetbrains-mono-latin-700-normal.woff2", weight: "700" },
-  ],
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["500", "700"],
   variable: "--font-mono",
   display: "swap",
 });

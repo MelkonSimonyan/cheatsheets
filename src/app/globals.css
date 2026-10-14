@@ -38,13 +38,18 @@ body {
   overflow: hidden;
   z-index: -1;
 
+  &:before,
+  &:after {
+    font-size: clamp(60px, 10vw, 100px);
+  }
+
   &:before {
     content: "";
     position: absolute;
-    right: -200px;
-    top: -200px;
-    width: 620px;
-    height: 620px;
+    right: -2em;
+    top: -2em;
+    width: 6.2em;
+    height: 6.2em;
     border-radius: 50%;
     background: var(--lime);
     opacity: 0.12;
@@ -54,12 +59,12 @@ body {
   &:after {
     content: "";
     position: absolute;
-    left: -220px;
+    left: -2.2em;
     top: 700px;
-    width: 560px;
-    height: 560px;
+    width: 5.6em;
+    height: 5.6em;
     border-radius: 50%;
-    border: 64px solid #009290;
+    border: 0.64em solid #009290;
     opacity: 0.22;
     pointer-events: none;
   }
