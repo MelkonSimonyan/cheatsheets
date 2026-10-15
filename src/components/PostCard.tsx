@@ -18,12 +18,14 @@ export function PostCard({ post, total, isNew }: { post: Post; total: number; is
       <div className="num">{label}</div>
       <div className="title">{post.title}</div>
       <div className="links">
-        <a
-          href={post.linkedin}
-          target="_blank"
-        >
-          LinkedIn
-        </a>
+        {Boolean(post.linkedin) && (
+          <a
+            href={post.linkedin}
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+        )}
         <a
           className="pdf"
           href={post.pdf}

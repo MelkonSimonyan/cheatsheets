@@ -1,12 +1,10 @@
 import type { Cycle } from "@/data/types";
-import { publishedPosts } from "@/lib";
 import { PostCard, SoonCard } from "./PostCard";
 
 export function CycleSection({ cycle }: { cycle: Cycle }) {
-  const posts = publishedPosts(cycle);
-  if (posts.length === 0) return null;
+  const posts = [...cycle.posts];
 
-  const last = posts[posts.length - 1].n;
+  const last = posts[posts.length - 1]?.n;
   return (
     <section className="group">
       <div className="ghead">

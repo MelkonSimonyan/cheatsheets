@@ -36,17 +36,19 @@ public/og.png             Open Graph image 1200x630, referenced in layout.tsx
 src/components/           CycleSection (group), PostCard, PostModal (client popup) and SoonCard
 src/data/types.ts         Post, Cycle, Site types
 src/data/cycles.ts        THE CONTENT. Edit this to add posts
-src/lib.ts                small helpers (pad, isPublished, publishedPosts)
+src/lib.ts                small helpers (pad)
 public/posts/<cycle>/     previews and texts: NN-slug.webp (WebP 600x750, 4:5) and NN-slug.txt (post text for the popup)
 public/pdf/<cycle>/       PDFs: NN-slug.pdf and <Cycle>-Cheat-Sheet.pdf (magazine). Created as posts are published
 docs/                     screenshots for the README
 ```
 
 ## Content rules (implemented in the components, keep them)
-- A post counts as PUBLISHED only when `linkedin` is not empty. Unpublished posts are not listed.
-- A cycle with no published posts is not rendered at all.
-- Exactly one "Coming soon" card after the last published post until the cycle is complete. Never one per future post.
-- The last published post of a cycle gets the NEW badge. The group header shows `published/total sheets`.
+- Every post listed in `cycles.ts` is rendered, whether or not it has a LinkedIn URL. The "LinkedIn" button (card and popup)
+  is shown only when `linkedin` is not empty; with an empty `linkedin` the post is shown with the PDF link only.
+- Add a post to `cycles.ts` only when it should be visible on the page; there is no hidden/draft state.
+- Every cycle object in `cycles.ts` is rendered (an empty `posts` array shows a header with `0/N` and a "Coming soon" card).
+- Exactly one "Coming soon" card after the last listed post until the cycle is complete. Never one per future post.
+- The last listed post of a cycle gets the NEW badge. The group header shows `listed/total sheets`.
 - `magazine` (path to the full-cycle PDF) is set when the cycle is finished; it adds a "Full magazine (PDF)" button.
 - Group badge colours so far: Web Fundamentals `#72D76F` (WF), JavaScript `#D4F04C` (JS), TypeScript `#6FD3E6` (TS).
   For React, Next.js, Zustand and Forms pick from the palette below and ask the owner.
@@ -64,10 +66,10 @@ it matches `style.css` of the LinkedIn project. Do not redesign.
    (`convert in.png -resize 600x750 -quality 82 out.webp`, or Pillow). Aim for about 50 KB.
    Put the text next to it as `public/posts/<cycle-folder>/NN-slug.txt`.
 3. Copy the PDF to `public/pdf/<cycle-folder>/NN-slug.pdf` (same file name as in the LinkedIn project).
-4. Add one entry to `posts` in `src/data/cycles.ts` (`thumb`, `text`, `pdf`) with an EMPTY `linkedin` first: the post is
-   not listed yet, but the files are deployed. Push and wait for the green deploy BEFORE publishing on LinkedIn, so the
-   PDF link in the first comment works the moment readers see the post.
-   After publishing, put the real LinkedIn URL into `linkedin` and push again (that makes the card appear).
+4. Add one entry to `posts` in `src/data/cycles.ts` (`thumb`, `text`, `pdf`) with an EMPTY `linkedin` (`""`) first: the
+   post is already visible on the page, without the LinkedIn button. Push and wait for the green deploy BEFORE publishing
+   on LinkedIn, so the PDF link in the first comment works the moment readers see the post.
+   After publishing, put the real LinkedIn URL into `linkedin` and push again (that adds the LinkedIn button).
 5. When a cycle ends: copy the magazine PDF to `public/pdf/<cycle-folder>/<Cycle>-Cheat-Sheet.pdf` and set `magazine`.
    When a new cycle starts: add the cycle object, and update `next`.
 6. Run the full final check below, then upload the contents of `out/`.
@@ -78,8 +80,8 @@ is ready to upload:
 - `npm run typecheck` and `npm run build` pass with no warnings.
 - Every `thumb`, `text` and `pdf` path in `cycles.ts` exists under `public/` and returns 200 from `npx serve out`;
   `og.png` and the favicons too.
-- No PHP, no forbidden CTAs, analytics or third-party scripts (see Don'ts). The bare `https://www.linkedin.com/`
-  link is a known placeholder the owner left on purpose (see Open items); mention it, but it does not fail the check.
+- No PHP, no forbidden CTAs, analytics or third-party scripts (see Don'ts), no placeholder `linkedin` URLs
+  (a not yet published post uses `""`).
 - Check desktop and a ~390px wide screen (browser pane or Playwright): no horizontal scroll, nothing clipped.
 - Do not deploy while any item fails; list the failures instead.
 
@@ -97,14 +99,13 @@ is ready to upload:
 ## Don'ts
 - No dates, no "Day N", no "learn in N days". Do not present upcoming posts as if they were ready.
 - No "Follow me" / "Subscribe" / "Tell me in the comments" calls to action anywhere on the page (the owner dislikes them).
-- Do not list unpublished posts. Do not leave placeholder links in the public page.
+- Do not list posts whose files are not ready. Do not leave placeholder links in the public page: an unpublished post
+  has an empty `linkedin`, not a fake URL.
 - No analytics, cookies, tracking, or third-party scripts without asking.
 - Do not rename the series: **Frontend Interview Cheat Sheets**. Sub-cycle names: Web Fundamentals, JavaScript, TypeScript,
   React, Next.js, Zustand, Forms (Zod, Yup).
 - Do not commit `node_modules`, `.next` or `out`.
 
 ## Open items
-- The `https://www.linkedin.com/` link in `cycles.ts` (post 1 of Web Fundamentals) is a deliberate placeholder: there are
-  no real posts yet. The owner will replace it himself. Do not "fix" it and do not treat it as a deploy blocker.
 - Decide whether "every day" in the page subtitle and Open Graph description is acceptable next to the "no dates" rule.
 - Choose a licence for the code (the README says it is not specified yet).

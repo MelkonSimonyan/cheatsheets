@@ -143,12 +143,14 @@ export function PostModal({ label, title, thumb, text, pdf, linkedin, isNew }: P
                     : "Loading…"}
               </div>
               <div className="links">
-                <a
-                  href={linkedin}
-                  target="_blank"
-                >
-                  LinkedIn
-                </a>
+                {Boolean(linkedin) && (
+                  <a
+                    href={linkedin}
+                    target="_blank"
+                  >
+                    LinkedIn
+                  </a>
+                )}
                 <a
                   className="pdf"
                   href={pdf}

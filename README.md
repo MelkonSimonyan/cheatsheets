@@ -3,7 +3,8 @@
 The home of the **Frontend Interview Cheat Sheets** series, a daily one-page cheat sheet on one frontend topic
 (tables, code and the traps interviewers love). Live at **https://cheatsheets.melkonsimonyan.com/**.
 
-Each published sheet is listed with a preview, a link to the LinkedIn post and a link to the printable A4 PDF.
+Each sheet is listed with a preview, the post text in a popup, a link to the printable A4 PDF and, once the post is
+published, a link to the LinkedIn post.
 When a cycle is finished, a PDF magazine with all its pages is offered for download.
 
 ![Desktop](docs/desktop.png)
@@ -25,7 +26,7 @@ When a cycle is finished, a PDF magazine with all its pages is offered for downl
 ## Tech
 
 - [Next.js](https://nextjs.org/) (App Router) with **static export**: the build is plain HTML, CSS and files, no Node server
-- TypeScript (strict), React server components only
+- TypeScript (strict), React server components; the only client component is the post popup (`PostModal`)
 - Plain CSS, Google Fonts through `next/font/google` (self-hosted at build time), previews as pre-sized WebP
 - All content is data in a single typed file, no CMS and no database
 
@@ -33,10 +34,11 @@ When a cycle is finished, a PDF magazine with all its pages is offered for downl
 
 ```
 src/app/            layout, the single page, global styles
-src/components/     CycleSection, PostCard, SoonCard
+src/components/     CycleSection, PostCard, SoonCard, PostModal
 src/data/           types.ts and cycles.ts (the content)
-public/thumbs/      post previews, WebP 600x750
-public/pdf/         printable PDFs and cycle magazines
+src/lib.ts          small helpers
+public/posts/       post previews (WebP 600x750) and post texts (.txt), one folder per cycle
+public/pdf/         printable PDFs and cycle magazines, one folder per cycle
 ```
 
 ## Getting started
@@ -53,17 +55,24 @@ npx serve out      # preview the production build
 
 ## Add a post
 
-1. Resize the sheet image to 600x750 WebP and save it as `public/thumbs/<cycle>-NN.webp`.
-2. Copy the PDF to `public/pdf/<cycle>/NN-slug.pdf`.
-3. Add one entry to `posts` in `src/data/cycles.ts`:
+1. Resize the sheet image to 600x750 WebP and save it as `public/posts/<cycle>/NN-slug.webp`.
+2. Save the post text next to it as `public/posts/<cycle>/NN-slug.txt` (shown in the popup).
+3. Copy the PDF to `public/pdf/<cycle>/NN-slug.pdf`.
+4. Add one entry to `posts` in `src/data/cycles.ts`:
 
 ```ts
-{ n: 3, title: 'How Browsers Work', thumb: '/thumbs/wf-03.webp',
-  linkedin: 'https://www.linkedin.com/...', pdf: '/pdf/webfundamentals/03-how-browsers-work.pdf' },
+{
+  n: 3,
+  title: "How Browsers Work",
+  thumb: "/posts/webfundamentals/03-how-browsers-work.webp",
+  text: "/posts/webfundamentals/03-how-browsers-work.txt",
+  pdf: "/pdf/webfundamentals/03-how-browsers-work.pdf",
+  linkedin: "", // the LinkedIn URL once the post is published
+},
 ```
 
-A post appears on the page only when its `linkedin` value is set. The "Coming soon" card, the NEW badge and the
-`published/total` counter are added automatically. A cycle with no published posts is hidden.
+Every post in `posts` is shown on the page. The LinkedIn button appears only when `linkedin` is not empty. The
+"Coming soon" card, the NEW badge and the `listed/total` counter are added automatically.
 
 ## Deploy
 
