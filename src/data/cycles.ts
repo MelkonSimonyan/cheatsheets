@@ -17,14 +17,14 @@ export const site: Site = {
       total: 7,
       // magazine: "/pdf/webfundamentals/Webfundamentals-Cheat-Sheet.pdf", // when the cycle is finished
       posts: [
-        /* {
+        {
           n: 1,
           title: "How the Web Works",
           thumb: "/posts/webfundamentals/01-how-the-web-works.webp",
           text: "/posts/webfundamentals/01-how-the-web-works.txt",
           pdf: "/pdf/webfundamentals/01-how-the-web-works.pdf",
           linkedin: "",
-        }, */
+        },
       ],
     },
     // { name: 'JavaScript Cheat Sheet', tags: '...', badge: 'JS', color: '#D4F04C', total: 14, posts: [ ... ] },
