@@ -31,7 +31,7 @@ export const site: Site = {
           thumb: "/posts/webfundamentals/02-http-https.webp",
           text: "/posts/webfundamentals/02-http-https.txt",
           pdf: "/pdf/webfundamentals/02-http-https.pdf",
-          linkedin: "",
+          linkedin: "https://lnkd.in/p/d_rHTUgi",
         },
       ],
     },
