@@ -1,0 +1,39 @@
+🎯 Web Fundamentals Cheat Sheet · 03/7: How Browsers Work
+
+How does a browser turn HTML, CSS and JavaScript into pixels? 🤔
+
+A browser's rendering engine is a pipeline: parse the response into trees, combine them, measure every box, draw 👇
+
+1️⃣ How it works
+→ HTML is parsed into the DOM, CSS into the CSSOM
+→ DOM + CSSOM = the render tree: only what is displayed (display: none is out, visibility: hidden stays)
+→ Layout computes the size and position of every box
+→ Paint fills in pixels, then layers are composited
+
+2️⃣ Key features
+→ CSS blocks rendering: no paint before the CSSOM
+→ A plain script pauses the HTML parser and waits for stylesheets already parsed
+→ defer: after parsing, in order, before DOMContentLoaded. async: when downloaded, any order
+→ Changing width or top reruns layout. transform and opacity can skip layout and paint
+
+3️⃣ Common pitfalls
+→ defer and async do nothing on inline scripts
+→ DOMContentLoaded does not wait for images or async scripts. load does
+
+My rule: DOM + CSSOM, layout, paint, composite. CSS blocks rendering, scripts block parsing.
+
+🧠 Bonus trap: what happens here?
+
+<head>
+  <script src="a.js"></script>
+  <script src="b.js" defer></script>
+</head>
+
+Both files run console.log(document.body). What do they log?
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 04/7 — DOM & Events
+
+#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
