@@ -1,0 +1,38 @@
+🎯 Web Fundamentals Cheat Sheet · 02/7: HTTP & HTTPS
+
+What is the difference between GET, POST, PUT and PATCH? 🤔
+
+HTTP is a stateless request-response protocol: the client sends a method, a path and headers, the server replies with a status, headers and a body. HTTPS is HTTP over TLS 👇
+
+1️⃣ How it works
+→ GET reads, POST submits data, PUT replaces a resource, PATCH changes part of it
+→ Safe: only reads (GET, HEAD, OPTIONS). Idempotent: same effect when repeated (the safe ones, PUT, DELETE)
+→ Status classes: 2xx success, 3xx redirect, 4xx client error, 5xx server error
+→ Headers carry metadata: Content-Type, Accept, Authorization
+
+2️⃣ Key features
+→ POST and PATCH are not guaranteed idempotent: a retry can run twice
+→ 401: no valid credentials. 403: known user, not allowed
+→ HTTPS adds encryption, integrity, server identity. HSTS forces HTTPS for a host
+
+3️⃣ Common pitfalls
+→ fetch does not reject on 404 or 500. Check response.ok
+→ A GET must not change data: tools may prefetch or retry it
+→ After 302 or 303 the browser sends GET. 307 and 308 repeat the method and body
+
+My rule: method = intent, status = outcome, TLS = envelope.
+
+🧠 Bonus trap: what happens here?
+
+POST /login
+HTTP/1.1 302 Found
+Location: /home
+
+What does the browser send next?
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 03/7 — How Browsers Work
+
+#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
