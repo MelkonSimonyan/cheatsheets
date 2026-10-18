@@ -33,12 +33,20 @@ export const site: Site = {
           pdf: "/pdf/webfundamentals/02-http-https.pdf",
           linkedin: "https://lnkd.in/p/d_rHTUgi",
         },
-        /* {
+        {
           n: 3,
           title: "How Browsers Work",
           thumb: "/posts/webfundamentals/03-how-browsers-work.webp",
           text: "/posts/webfundamentals/03-how-browsers-work.txt",
           pdf: "/pdf/webfundamentals/03-how-browsers-work.pdf",
+          linkedin: "",
+        },
+        /* {
+          n: 4,
+          title: "DOM & Events",
+          thumb: "/posts/webfundamentals/04-dom-events.webp",
+          text: "/posts/webfundamentals/04-dom-events.txt",
+          pdf: "/pdf/webfundamentals/04-dom-events.pdf",
           linkedin: "",
         }, */
       ],

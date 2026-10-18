@@ -1,0 +1,37 @@
+🎯 Web Fundamentals Cheat Sheet · 04/7: DOM & Events
+
+Why does a click on a child also fire the parent's handler? 🤔
+
+The DOM is the browser's tree of nodes for a document. Events fire on those nodes and travel through the tree 👇
+
+1️⃣ How it works
+→ An event goes down from window to the target (capture), fires there, then back up (bubble)
+→ addEventListener listens in the bubble phase by default, { capture: true } on the way down
+→ event.target is the node hit, currentTarget the one whose handler runs
+
+2️⃣ Key features
+→ Delegation: one parent listener, e.target.closest("li") finds the item, new elements work too
+→ Options: once, passive (no preventDefault), signal (abort removes it)
+→ preventDefault cancels the default action, not the bubbling
+→ stopPropagation stops the trip, same-node listeners still run. stopImmediatePropagation stops those too
+
+3️⃣ Common pitfalls
+→ focus and blur do not bubble, focusin and focusout do
+→ e.target may be a child (a <b> in an <li>): use closest
+
+My rule: down, then up. Listen on a parent, use closest.
+
+🧠 Bonus trap: what happens here?
+
+p.addEventListener("click", A);
+p.addEventListener("click", B, true);
+c.addEventListener("click", C);
+
+Click c (inside p). Each handler logs its name. Order?
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 05/7 — CORS & Same-Origin Policy
+
+#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
