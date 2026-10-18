@@ -39,7 +39,7 @@ export const site: Site = {
           thumb: "/posts/webfundamentals/03-how-browsers-work.webp",
           text: "/posts/webfundamentals/03-how-browsers-work.txt",
           pdf: "/pdf/webfundamentals/03-how-browsers-work.pdf",
-          linkedin: "",
+          linkedin: "https://lnkd.in/p/dDR9kY65",
         },
         /* {
           n: 4,
