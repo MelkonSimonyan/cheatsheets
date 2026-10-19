@@ -1,0 +1,38 @@
+🎯 Web Fundamentals Cheat Sheet · 05/7: CORS & Same-Origin Policy
+
+Why does the browser block some API requests? 🤔
+
+The same-origin policy is a browser rule: a page may not read another origin's responses (scheme + host + port). CORS is how a server opts in with HTTP headers 👇
+
+1️⃣ How it works
+→ A cross-origin request carries an Origin header
+→ The server replies with Access-Control-Allow-Origin: that origin, or *
+→ Missing or different: the response is hidden and fetch rejects
+→ Simple requests (GET, HEAD, form-like POST, no custom headers) go out directly
+→ PUT, DELETE, JSON or custom headers need a preflight OPTIONS first. The real request goes only if allowed
+
+2️⃣ Key features
+→ Cookies need credentials: "include" and Access-Control-Allow-Credentials: true, with a named origin, not *
+→ Only browsers enforce CORS, curl and servers ignore it
+
+3️⃣ Common pitfalls
+→ A blocked simple request still reached the server. CORS limits reading, not sending
+→ CORS is not CSRF protection: a cross-site form POST is allowed
+
+My rule: the server opts in, the browser enforces.
+
+🧠 Bonus trap: what happens here?
+
+// app.dev calls api.dev (no CORS headers)
+fetch("https://api.dev/items", {
+  method: "PUT",
+});
+
+What does api.dev receive?
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 06/7 — Cookies, Storage & Sessions
+
+#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep

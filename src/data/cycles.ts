@@ -41,12 +41,20 @@ export const site: Site = {
           pdf: "/pdf/webfundamentals/03-how-browsers-work.pdf",
           linkedin: "https://lnkd.in/p/dDR9kY65",
         },
-        /* {
+        {
           n: 4,
           title: "DOM & Events",
           thumb: "/posts/webfundamentals/04-dom-events.webp",
           text: "/posts/webfundamentals/04-dom-events.txt",
           pdf: "/pdf/webfundamentals/04-dom-events.pdf",
+          linkedin: "",
+        },
+        /* {
+          n: 5,
+          title: "CORS & Same-Origin Policy",
+          thumb: "/posts/webfundamentals/05-cors-same-origin.webp",
+          text: "/posts/webfundamentals/05-cors-same-origin.txt",
+          pdf: "/pdf/webfundamentals/05-cors-same-origin.pdf",
           linkedin: "",
         }, */
       ],
