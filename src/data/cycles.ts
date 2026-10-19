@@ -47,7 +47,7 @@ export const site: Site = {
           thumb: "/posts/webfundamentals/04-dom-events.webp",
           text: "/posts/webfundamentals/04-dom-events.txt",
           pdf: "/pdf/webfundamentals/04-dom-events.pdf",
-          linkedin: "",
+          linkedin: "https://lnkd.in/p/djF8YmRq",
         },
         /* {
           n: 5,
