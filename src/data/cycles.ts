@@ -49,12 +49,20 @@ export const site: Site = {
           pdf: "/pdf/webfundamentals/04-dom-events.pdf",
           linkedin: "https://lnkd.in/p/djF8YmRq",
         },
-        /* {
+        {
           n: 5,
           title: "CORS & Same-Origin Policy",
           thumb: "/posts/webfundamentals/05-cors-same-origin.webp",
           text: "/posts/webfundamentals/05-cors-same-origin.txt",
           pdf: "/pdf/webfundamentals/05-cors-same-origin.pdf",
+          linkedin: "https://lnkd.in/p/dg8a_rau",
+        },
+        /* {
+          n: 6,
+          title: "Cookies, Storage & Sessions",
+          thumb: "/posts/webfundamentals/06-cookies-storage.webp",
+          text: "/posts/webfundamentals/06-cookies-storage.txt",
+          pdf: "/pdf/webfundamentals/06-cookies-storage.pdf",
           linkedin: "",
         }, */
       ],

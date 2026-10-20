@@ -1,0 +1,36 @@
+🎯 Web Fundamentals Cheat Sheet · 06/7: Cookies, Storage & Sessions
+
+Where does the browser store data, and what survives a page reload? 🤔
+
+Cookies, localStorage and sessionStorage are the browser's key-value stores for a site. They differ in lifetime, scope and server visibility 👇
+
+1️⃣ How it works
+→ Cookie: set by Set-Cookie, sent back in the Cookie header on matching requests
+→ localStorage: per origin, strings only, never sent to the server, kept until cleared
+→ sessionStorage: per origin and tab, gone when the tab closes
+→ Reload keeps all three. A new tab keeps cookies and localStorage, not sessionStorage
+
+2️⃣ Key features
+→ Max-Age or Expires makes a cookie persistent. Without them it is a session cookie, dropped on browser close
+→ HttpOnly hides it from JS, Secure means HTTPS only, SameSite limits cross-site sending
+→ Session: state on the server, ID in a cookie
+
+3️⃣ Common pitfalls
+→ Any script can read localStorage, so XSS can steal tokens kept there. HttpOnly cookies are out of reach
+
+My rule: cookie for the server, localStorage for the user, sessionStorage for a tab.
+
+🧠 Bonus trap: what happens here?
+
+document.cookie = "a=1; HttpOnly";
+sessionStorage.b = "2";
+localStorage.c = "3";
+
+New tab, same site: what is there?
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 07/7 — Web Performance
+
+#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
