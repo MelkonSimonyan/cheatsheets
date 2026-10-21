@@ -1,0 +1,41 @@
+🎯 Web Fundamentals Cheat Sheet · 07/7: Web Performance
+
+Why can a website feel slow even when the server is fast? 🤔
+
+Web performance is how fast a page loads, reacts to input and stays visually stable. Core Web Vitals measure it in three numbers 👇
+
+1️⃣ How it works
+→ The server is one step. Bytes still travel, scripts block, the browser must paint (see 03)
+→ LCP: when the largest element appears. Good: 2.5 s or less
+→ INP: click or key press to the next paint. Good: 200 ms or less
+→ CLS: how much the layout jumps. Good: 0.1 or less
+→ Scored at the 75th percentile of real visits
+
+2️⃣ Key features
+→ Send less: compress, resize images, ship less JS
+→ Hashed files: Cache-Control: max-age=31536000, immutable
+→ loading="lazy" only below the fold, never on the LCP image
+→ width and height on images reserve space and cut CLS
+
+3️⃣ Common pitfalls
+→ A render-blocking script or a huge hero image delays the first paint
+→ Heavy JS on the main thread makes clicks feel dead
+→ Guessing. Measure in DevTools or Lighthouse first
+
+My rule: measure first, then fix the biggest bottleneck.
+
+🧠 Bonus trap: what happens here?
+
+// 1st visit to /app.js
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+ETag: "v1"
+// 2nd visit, file unchanged
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: all 7 pages in one printable PDF
+
+#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
