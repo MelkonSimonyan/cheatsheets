@@ -65,14 +65,14 @@ export const site: Site = {
           pdf: "/pdf/webfundamentals/06-cookies-storage.pdf",
           linkedin: "https://lnkd.in/p/d4WET-at",
         },
-        /* {
+        {
           n: 7,
           title: "Web Performance",
           thumb: "/posts/webfundamentals/07-web-performance.webp",
           text: "/posts/webfundamentals/07-web-performance.txt",
           pdf: "/pdf/webfundamentals/07-web-performance.pdf",
-          linkedin: "",
-        }, */
+          linkedin: "https://lnkd.in/p/dPJHJEzt",
+        },
       ],
     },
     // { name: 'JavaScript Cheat Sheet', tags: '...', badge: 'JS', color: '#D4F04C', total: 14, posts: [ ... ] },
