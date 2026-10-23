@@ -3,6 +3,7 @@ const nextConfig = {
   output: "export", // static HTML in ./out, no Node server needed
   images: { unoptimized: true },
   trailingSlash: true,
+  experimental: { agentUpgrade: "security" },
   allowedDevOrigins: [
     "192.168.1.1",
     "192.168.1.2",
