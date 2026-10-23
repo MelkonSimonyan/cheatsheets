@@ -78,7 +78,7 @@ export const site: Site = {
           thumb: "/posts/webfundamentals/08-recap.webp",
           text: "/posts/webfundamentals/08-recap.txt",
           pdf: "/pdf/webfundamentals/08-recap.pdf",
-          linkedin: "",
+          linkedin: "https://lnkd.in/p/dX-n8PkJ",
         },
       ],
     },
