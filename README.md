@@ -5,7 +5,6 @@ The home of the **Frontend Interview Cheat Sheets** series, a daily one-page che
 
 Each sheet is listed with a preview, the post text in a popup, a link to the printable A4 PDF and, once the post is
 published, a link to the LinkedIn post.
-When a cycle is finished, a PDF magazine with all its pages is offered for download.
 
 ![Desktop](docs/desktop.png)
 
@@ -38,7 +37,7 @@ src/components/     CycleSection, PostCard, SoonCard, PostModal
 src/data/           types.ts and cycles.ts (the content)
 src/lib.ts          small helpers
 public/posts/       post previews (WebP 600x750) and post texts (.txt), one folder per cycle
-public/pdf/         printable PDFs and cycle magazines, one folder per cycle
+public/pdf/         printable PDFs, one folder per cycle
 ```
 
 ## Getting started

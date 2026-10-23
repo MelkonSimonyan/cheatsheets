@@ -1,0 +1,36 @@
+🎯 JS Cheat Sheet · 01/14: var vs let vs const
+
+What's the difference between var, let and const? 🤔
+
+They are the three ways to declare a variable. They differ in scope, hoisting and reassignment 👇
+
+1️⃣ Scope
+→ var is function-scoped: it ignores if and for blocks
+→ let and const are block-scoped: they live in the nearest { }
+→ A top-level var in a classic script becomes window.x. let and const never do
+
+2️⃣ Hoisting and TDZ
+→ All three are hoisted, but differently
+→ var starts as undefined, so reading it early gives undefined
+→ let and const sit in the Temporal Dead Zone until their line runs: reading them early throws a ReferenceError, even with typeof
+→ Redeclaring is fine for var, a SyntaxError for let and const
+
+3️⃣ Reassign and mutate
+→ let can be reassigned. const can't, and needs a value at declaration
+→ const locks the binding, not the value: an object or array it holds can still change. Object.freeze is only shallow
+→ A for loop with let creates a new binding per iteration. for (const i = 0; ...; i++) throws, for (const x of arr) works
+
+My rule: const by default, let when the value must change, var almost never.
+
+🧠 Bonus trap: what does this log?
+
+for (var i = 0; i < 3; i++)
+  setTimeout(() => console.log(i));
+
+Answer in the comments 👇 Then swap var for let and explain why it changes.
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 02/14 — == vs ===
+
+#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep

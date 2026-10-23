@@ -5,6 +5,8 @@ export function CycleSection({ cycle }: { cycle: Cycle }) {
   const posts = [...cycle.posts];
 
   const last = posts[posts.length - 1]?.n;
+  // The closing post is not a cheat sheet, so it does not count towards the `listed/total` counter.
+  const listed = posts.filter((p) => !p.closing).length;
   return (
     <section className="group">
       <div className="ghead">
@@ -18,19 +20,9 @@ export function CycleSection({ cycle }: { cycle: Cycle }) {
           <h2>{cycle.name}</h2>
           <p>{cycle.tags}</p>
         </div>
-        {cycle.magazine && (
-          <div className="gmag">
-            <a
-              href={cycle.magazine}
-              target="_blank"
-            >
-              Full magazine (PDF)
-            </a>
-          </div>
-        )}
         <div className="gcount">
           <div>
-            {posts.length}/{cycle.total}
+            {listed}/{cycle.total}
           </div>
           <small>sheets</small>
         </div>
@@ -44,9 +36,9 @@ export function CycleSection({ cycle }: { cycle: Cycle }) {
             isNew={p.n === last}
           />
         ))}
-        {posts.length < cycle.total && (
+        {listed < cycle.total && (
           <SoonCard
-            n={posts.length + 1}
+            n={listed + 1}
             total={cycle.total}
           />
         )}

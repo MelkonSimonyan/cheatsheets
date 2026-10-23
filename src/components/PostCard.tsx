@@ -3,7 +3,7 @@ import { pad } from "@/lib";
 import { PostModal } from "./PostModal";
 
 export function PostCard({ post, total, isNew }: { post: Post; total: number; isNew: boolean }) {
-  const label = `${pad(post.n)}/${total}`;
+  const label = post.closing ? "Wrap-up" : `${pad(post.n)}/${total}`;
   return (
     <div className="card">
       <PostModal

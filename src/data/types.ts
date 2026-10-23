@@ -8,6 +8,8 @@ export type Post = {
   text: string;
   /** Printable A4 PDF under /public, e.g. "/pdf/webfundamentals/01-how-the-web-works.pdf". */
   pdf: string;
+  /** The cycle's closing post (recap + next cycle announcement). Not counted in `Cycle.total`; labelled "Wrap-up". */
+  closing?: boolean;
   /** URL of the LinkedIn post. Empty or missing means "not published yet". */
   linkedin: string;
 };
@@ -17,10 +19,8 @@ export type Cycle = {
   tags: string;
   badge: string;
   color: string;
-  /** Number of posts in the whole cycle (7 or 14). */
+  /** Number of cheat sheets in the cycle (7 or 14), without the closing post. */
   total: number;
-  /** PDF with every page of the cycle, set when the cycle is finished. */
-  magazine?: string;
   posts: Post[];
 };
 

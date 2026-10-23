@@ -15,7 +15,6 @@ export const site: Site = {
       badge: "WF",
       color: "#72D76F",
       total: 7,
-      // magazine: "/pdf/webfundamentals/Webfundamentals-Cheat-Sheet.pdf", // when the cycle is finished
       posts: [
         {
           n: 1,
@@ -73,9 +72,33 @@ export const site: Site = {
           pdf: "/pdf/webfundamentals/07-web-performance.pdf",
           linkedin: "https://lnkd.in/p/dPJHJEzt",
         },
+        {
+          n: 8,
+          title: "Recap",
+          thumb: "/posts/webfundamentals/08-recap.webp",
+          text: "/posts/webfundamentals/08-recap.txt",
+          pdf: "/pdf/webfundamentals/08-recap.pdf",
+          linkedin: "",
+        },
       ],
     },
-    // { name: 'JavaScript Cheat Sheet', tags: '...', badge: 'JS', color: '#D4F04C', total: 14, posts: [ ... ] },
+    /* {
+      name: "JavaScript Cheat Sheet",
+      tags: "closures · async · event loop · prototypes",
+      badge: "JS",
+      color: "#D4F04C",
+      total: 14,
+      posts: [
+        {
+          n: 1,
+          title: "var vs let vs const",
+          thumb: "/posts/javascript/01-var-let-const.webp",
+          text: "/posts/javascript/01-var-let-const.txt",
+          pdf: "/pdf/javascript/01-var-let-const.pdf",
+          linkedin: "",
+        },
+      ],
+    }, */
   ],
   next: { name: "JavaScript", sheets: 14 },
 };

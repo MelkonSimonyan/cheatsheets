@@ -38,7 +38,7 @@ src/data/types.ts         Post, Cycle, Site types
 src/data/cycles.ts        THE CONTENT. Edit this to add posts
 src/lib.ts                small helpers (pad)
 public/posts/<cycle>/     previews and texts: NN-slug.webp (WebP 600x750, 4:5) and NN-slug.txt (post text for the popup)
-public/pdf/<cycle>/       PDFs: NN-slug.pdf and <Cycle>-Cheat-Sheet.pdf (magazine). Created as posts are published
+public/pdf/<cycle>/       PDFs: NN-slug.pdf. Created as posts are published
 docs/                     screenshots for the README
 ```
 
@@ -49,7 +49,12 @@ docs/                     screenshots for the README
 - Every cycle object in `cycles.ts` is rendered (an empty `posts` array shows a header with `0/N` and a "Coming soon" card).
 - Exactly one "Coming soon" card after the last listed post until the cycle is complete. Never one per future post.
 - The last listed post of a cycle gets the NEW badge. The group header shows `listed/total sheets`.
-- `magazine` (path to the full-cycle PDF) is set when the cycle is finished; it adds a "Full magazine (PDF)" button.
+- There is no full-cycle PDF ("magazine"). Instead, every cycle ends with ONE closing post: a call to go through the
+  cycle's topics once more, plus an announcement of the next cycle. It is an ordinary post (same files and the same
+  `cycles.ts` entry as any other, with its own PDF), listed when it is ready, with `closing: true` and `n` = total + 1.
+  It is NOT counted in `total` or in the `listed/total` counter (a finished 7-sheet cycle shows `7/7` while having 8
+  posts), its card label is "Wrap-up" instead of `NN/total`, and it gets the NEW badge as the last listed post.
+  No "Coming soon" card is shown for it.
 - Group badge colours so far: Web Fundamentals `#72D76F` (WF), JavaScript `#D4F04C` (JS), TypeScript `#6FD3E6` (TS).
   For React, Next.js, Zustand and Forms pick from the palette below and ask the owner.
 - React escapes text automatically; titles contain `&` ("HTTP & HTTPS") and that is fine.
@@ -70,7 +75,7 @@ it matches `style.css` of the LinkedIn project. Do not redesign.
    post is already visible on the page, without the LinkedIn button. Push and wait for the green deploy BEFORE publishing
    on LinkedIn, so the PDF link in the first comment works the moment readers see the post.
    After publishing, put the real LinkedIn URL into `linkedin` and push again (that adds the LinkedIn button).
-5. When a cycle ends: copy the magazine PDF to `public/pdf/<cycle-folder>/<Cycle>-Cheat-Sheet.pdf` and set `magazine`.
+5. When a cycle ends: add its closing post (recap + announcement of the next cycle) as a normal post with `closing: true`, steps 1-4.
    When a new cycle starts: add the cycle object, and update `next`.
 6. Run the full final check below, then upload the contents of `out/`.
 
