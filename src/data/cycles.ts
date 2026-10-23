@@ -74,6 +74,7 @@ export const site: Site = {
         },
         {
           n: 8,
+          closing: true,
           title: "Recap",
           thumb: "/posts/webfundamentals/08-recap.webp",
           text: "/posts/webfundamentals/08-recap.txt",

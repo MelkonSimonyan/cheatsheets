@@ -33,7 +33,7 @@ export function CycleSection({ cycle }: { cycle: Cycle }) {
             key={p.n}
             post={p}
             total={cycle.total}
-            isNew={p.n === last}
+            isNew={!p.closing && p.n === last}
           />
         ))}
         {listed < cycle.total && (
