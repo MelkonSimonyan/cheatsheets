@@ -82,9 +82,9 @@ export const site: Site = {
         },
       ],
     },
-    /* {
+    {
       name: "JavaScript Cheat Sheet",
-      tags: "closures · async · event loop · prototypes",
+      tags: "closures · this · event loop · prototypes · async / await",
       badge: "JS",
       color: "#D4F04C",
       total: 14,
@@ -98,7 +98,7 @@ export const site: Site = {
           linkedin: "",
         },
       ],
-    }, */
+    },
   ],
-  next: { name: "JavaScript", sheets: 14 },
+  next: { name: "TypeScript", sheets: 14 },
 };
