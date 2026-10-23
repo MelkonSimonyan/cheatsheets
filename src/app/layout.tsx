@@ -18,15 +18,44 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cheatsheets.melkonsimonyan.com"),
-  title: "Frontend Interview Cheat Sheets",
-  description: "One page, one frontend topic: tables, code and the traps interviewers love.",
+  title: {
+    default: "Frontend Interview Cheat Sheets: free printable A4 PDFs",
+    template: "%s | Frontend Interview Cheat Sheets",
+  },
+  description:
+    "Free printable A4 cheat sheets for frontend interviews: Web Fundamentals, JavaScript, TypeScript, React and more. One page, one topic: tables, code and the traps interviewers love.",
+  keywords: [
+    "frontend interview",
+    "cheat sheet",
+    "JavaScript interview questions",
+    "TypeScript cheat sheet",
+    "React interview",
+    "web fundamentals",
+    "printable PDF",
+  ],
+  authors: [{ name: "Melkon Simonyan", url: "https://www.linkedin.com/in/melkon-simonyan/" }],
+  creator: "Melkon Simonyan",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
     title: "Frontend Interview Cheat Sheets",
-    description: "Tables, code and traps. One page, one topic, every day.",
+    description: "Free printable A4 cheat sheets: tables, code and traps. One page, one topic.",
+    url: "/",
+    siteName: "Frontend Interview Cheat Sheets",
+    locale: "en_US",
     type: "website",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Frontend Interview Cheat Sheets" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frontend Interview Cheat Sheets",
+    description: "Free printable A4 cheat sheets: tables, code and traps. One page, one topic.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
