@@ -96,7 +96,7 @@ export const site: Site = {
           thumb: "/posts/javascript/01-var-let-const.webp",
           text: "/posts/javascript/01-var-let-const.txt",
           pdf: "/pdf/javascript/01-var-let-const.pdf",
-          linkedin: "",
+          linkedin: "https://lnkd.in/p/dt3WYuVc",
         },
       ],
     },
