@@ -1,0 +1,36 @@
+🎯 JS Cheat Sheet · 02/14: == vs ===
+
+Why does typeof null return "object"? 🤔
+
+Equality in JS is how two values are compared: === compares as is, == converts types first, and typeof tells you which type a value has 👇
+
+1️⃣ How they compare
+→ === never converts: different types are never equal. Objects compare by reference, so {} === {} is false
+→ == converts first: "1" == 1, 0 == false, "" == 0 are true. An object becomes a primitive: [] == "" is true
+→ null == undefined is true, and neither equals anything else
+→ NaN !== NaN, and +0 === -0. Object.is flips both: NaN is equal, +0 and -0 differ
+
+2️⃣ typeof and its quirks
+→ 7 primitives: string, number, bigint, boolean, symbol, undefined, null
+→ typeof null is "object": a tag bug from the first engine, kept for compatibility
+→ Arrays are "object" (use Array.isArray), functions "function", NaN "number"
+→ Undeclared variable: "undefined". let or const before its line: ReferenceError
+
+3️⃣ Pitfalls
+→ [] == false is true, yet if ([]) runs: if checks truthiness, not ==
+→ Global isNaN("abc") is true. Use Number.isNaN
+→ x == null matches null and undefined only, the one use many teams allow
+
+My rule: === by default, == only for x == null.
+
+🧠 Bonus trap: what does this log?
+
+console.log(typeof NaN, NaN === NaN);
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 03/14 — Truthy vs Falsy
+
+#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
