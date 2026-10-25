@@ -1,0 +1,37 @@
+🎯 JS Cheat Sheet · 03/14: Truthy vs Falsy
+
+Is an empty array truthy in JavaScript? 🤔
+
+Truthy and falsy describe how a value is converted to a boolean where JavaScript expects one: if, while, !, &&, ||, ?:. Only 8 values convert to false 👇
+
+1️⃣ How it works
+→ Falsy: false, 0, -0, 0n, "", null, undefined, NaN
+→ Everything else is truthy: [], {}, "0", "false", -1, Infinity
+→ Every object is truthy, even new Boolean(false)
+→ && and || return one of their operands, not a boolean: "" || "x" is "x"
+
+2️⃣ Defaults and safe access
+→ a || b replaces any falsy value, so 0 and "" are lost
+→ a ?? b replaces only null and undefined, so 0 and "" survive
+→ Mixing ?? with || or && needs parentheses, otherwise SyntaxError
+→ a?.b gives undefined when a is null or undefined and skips the rest of the chain. Also fn?.(), arr?.[0]
+
+3️⃣ Pitfalls
+→ if (count) rejects a valid 0, if (name) a valid "". Use ?? or compare explicitly
+→ [] == false is true, yet if ([]) runs: == converts types, if only checks truthiness
+→ user?.address.city still throws when address is null. Put ?. on every step that can be empty
+
+My rule: ?? for defaults, || only when every falsy value should be replaced.
+
+🧠 Bonus trap: what does this log?
+
+if ([]) console.log("truthy");
+console.log([] == false);
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 04/14 — Scope & Hoisting
+
+#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
