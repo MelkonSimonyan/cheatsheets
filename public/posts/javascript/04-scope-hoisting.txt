@@ -1,0 +1,38 @@
+🎯 JS Cheat Sheet · 04/14: Scope & Hoisting
+
+Does JavaScript really "move your code to the top"? 🤔
+
+Scope is where a name is visible. Hoisting: before a scope runs, the engine registers its declarations, so names exist early. Code is not moved 👇
+
+1️⃣ How it works
+→ Scopes: global, function, block (let, const, class). Lookup goes outward
+→ Scope is lexical: fixed by where code is written, not where it is called
+→ Name not found: ReferenceError
+
+2️⃣ Hoisting by kind
+→ function declaration: hoisted with its body, callable early
+→ var: hoisted as undefined
+→ let, const, class: hoisted but in the TDZ until their line. Early access throws ReferenceError, even typeof
+→ TDZ is about time: a function above a const can read it if called after that line
+
+3️⃣ Pitfalls
+→ var f = () => {} called early: TypeError (f is undefined). With const: ReferenceError
+→ var ignores blocks: visible in the whole function
+→ Shadowing: an inner name hides an outer one, only inside its scope
+→ Function in a block: sloppy mode also leaks it as var (undefined before the block), strict mode keeps it inside
+
+My rule: hoisting registers names, not values. Declare before you use.
+
+🧠 Bonus trap: what does this log?
+
+console.log(typeof f, typeof g);
+function f() {}
+var g = () => {};
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 05/14 — Closures
+
+#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
