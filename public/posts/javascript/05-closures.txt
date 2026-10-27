@@ -1,0 +1,37 @@
+🎯 JS Cheat Sheet · 05/14: Closures
+
+What is a closure? 🤔
+
+A closure is a function bundled with a reference to its lexical environment: the variables in scope where the function was written. That is how it keeps using them after the outer function has returned 👇
+
+1️⃣ How it works
+→ Scope is fixed by where the function is written, not where it is called
+→ Each call of the outer function creates a new environment, so each closure gets its own variables
+→ The function holds the variables themselves, not copies of their values
+
+2️⃣ Key features
+→ It sees later changes: after x = 2, f() returns 2
+→ Closures made in the same call share the same variables
+→ Every function is a closure; it matters when it outlives its outer scope
+→ Uses: factories, private state, callbacks, memoize
+
+3️⃣ Pitfalls
+→ for (var i...) + setTimeout logs 3, 3, 3: one shared i. let creates a fresh i per iteration
+→ A variable stays alive while any reachable closure can use it. Remove listeners, drop references
+→ React: a handler keeps the state of its render (stale closure)
+
+My rule: a closure remembers variables, not values. Need private state without a class? Use one.
+
+🧠 Bonus trap: what does this log?
+
+let x = 1, f = () => x;
+x = 2;
+console.log(f());
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 06/14 — this
+
+#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
