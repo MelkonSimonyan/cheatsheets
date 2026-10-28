@@ -33,4 +33,4 @@ Answer in the comments 👇
 
 👉 Next: 07/7 — Web Performance
 
-#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
+#FrontendInterview #webfundamentals #frontend #webdevelopment #interviewprep

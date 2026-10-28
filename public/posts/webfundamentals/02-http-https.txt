@@ -35,4 +35,4 @@ Answer in the comments 👇
 
 👉 Next: 03/7 — How Browsers Work
 
-#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
+#FrontendInterview #webfundamentals #frontend #webdevelopment #interviewprep

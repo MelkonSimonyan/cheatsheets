@@ -34,4 +34,4 @@ Answer in the comments 👇
 
 👉 Next: 05/7 — CORS & Same-Origin Policy
 
-#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
+#FrontendInterview #webfundamentals #frontend #webdevelopment #interviewprep

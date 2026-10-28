@@ -35,4 +35,4 @@ Answer in the comments 👇
 
 👉 Next: 06/7 — Cookies, Storage & Sessions
 
-#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
+#FrontendInterview #webfundamentals #frontend #webdevelopment #interviewprep

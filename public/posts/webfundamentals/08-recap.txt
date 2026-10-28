@@ -26,4 +26,4 @@ Which topic made you hesitate? Tell me in the comments 👇
 
 👉 Next: JavaScript Cheat Sheets
 
-#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
+#FrontendInterview #webfundamentals #frontend #webdevelopment #interviewprep

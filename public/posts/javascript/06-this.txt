@@ -36,4 +36,4 @@ Answer in the comments 👇
 
 👉 Next: 07/14 — Arrow vs Regular
 
-#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep

@@ -33,4 +33,4 @@ Answer in the comments 👇 Then swap var for let and explain why it changes.
 
 👉 Next: 02/14 — == vs ===
 
-#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep

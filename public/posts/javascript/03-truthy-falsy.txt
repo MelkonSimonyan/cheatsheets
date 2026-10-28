@@ -34,4 +34,4 @@ Answer in the comments 👇
 
 👉 Next: 04/14 — Scope & Hoisting
 
-#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep

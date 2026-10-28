@@ -34,4 +34,4 @@ Answer in the comments 👇
 
 👉 Next: 06/14 — this
 
-#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep

@@ -38,4 +38,4 @@ Answer in the comments 👇
 
 👉 Next: Recap — the full checklist
 
-#FrontendInterviewCheatSheets #webfundamentals #frontend #webdevelopment #interviewprep
+#FrontendInterview #webfundamentals #frontend #webdevelopment #interviewprep
