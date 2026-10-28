@@ -1,0 +1,39 @@
+🎯 JS Cheat Sheet · 06/14: this
+
+What is "this" in JavaScript? 🤔
+
+this is the object a function runs on. JavaScript sets it at call time, so it depends on HOW the function is called, not where it is written 👇
+
+1️⃣ How it is decided
+→ new Fn() → a fresh object
+→ fn.call(obj), apply, bind → the object you pass
+→ obj.fn() → obj (left of the dot)
+→ plain fn() → undefined in strict mode, globalThis in sloppy mode
+
+2️⃣ Key features
+→ call(obj, a, b) runs now, apply(obj, [a, b]) takes an array
+→ bind(obj) returns a new function with this locked: call can't change it, only new can
+→ Arrow functions have no own this: they use the one from where they are written
+→ Classes and ES modules are always strict
+→ addEventListener: a regular function gets the element
+
+3️⃣ Pitfalls
+→ const f = obj.method; f() loses the owner. Same for callbacks. Fix: bind or an arrow
+→ A regular function inside a method gets its own this. Use an arrow there
+→ An arrow as an object method gets the outer this, not the object
+
+My rule: for a regular function ask "who called it?". For an arrow ask "where was it written?"
+
+🧠 Bonus trap: what does this log?
+
+function who() { return this.name; }
+const a = who.bind({ name: "A" });
+console.log(a.call({ name: "B" }));
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 07/14 — Arrow vs Regular
+
+#FrontendInterviewCheatSheets #javascript #frontend #webdevelopment #interviewprep
