@@ -1,0 +1,39 @@
+🎯 JS Cheat Sheet · 07/14: Arrow vs Regular
+
+Arrow functions vs regular functions: is it just shorter syntax? 🤔
+
+An arrow function is a function with no this, arguments, super or new.target of its own. It reads them from the surrounding scope 👇
+
+1️⃣ How it works
+→ this is fixed where the arrow is written. call, apply and bind can't change it
+→ arguments: none of its own, so use ...rest
+→ x => x * 2 returns the value. With { } it becomes a block and needs return
+
+2️⃣ Key features
+→ Not a constructor: new throws TypeError, there is no prototype
+→ Can't be a generator, and parameter names can't repeat
+→ Stored in a const, it is not hoisted. A declaration is
+→ Class field handle = () => {} keeps this per instance, but every instance gets its own copy
+
+3️⃣ Pitfalls
+→ () => { n: 1 } is a block and returns undefined. Wrap it: () => ({ n: 1 })
+→ An arrow as an object method gets the outer this, not the object
+→ A regular function inside a method gets its own this. Use an arrow there
+
+So not just shorter: the this rules are the point.
+
+My rule: arrows for callbacks, regular functions for methods and constructors.
+
+🧠 Bonus trap: what does this log?
+
+const a = () => { n: 1 };
+const b = () => ({ n: 1 });
+console.log(a(), b());
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 08/14 — Prototypes & Classes
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
