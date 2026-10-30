@@ -1,0 +1,40 @@
+🎯 JS Cheat Sheet · 08/14: Prototypes & Classes
+
+Is a JavaScript class just syntax over prototypes? 🤔
+
+A prototype is the object another object falls back to when a property is missing. This link is how JavaScript shares methods and inherits 👇
+
+1️⃣ How it works
+→ Every object has a hidden [[Prototype]]: Object.getPrototypeOf(obj)
+→ obj.k checks obj, then its prototype, then the next, up to null. Missing: undefined
+→ new A() links the new object to A.prototype
+→ Object.create(p) links it to any object p
+
+2️⃣ Is class just syntax? Mostly. Same links, plus:
+→ Methods live once on A.prototype, shared. Fields (x = 1) are own
+→ extends links B.prototype to A.prototype and B to A, so statics are inherited
+→ A derived constructor must call super() before using this
+→ #private fields have no prototype equivalent
+→ Needs new, has a TDZ, methods are not enumerable
+
+3️⃣ Pitfalls
+→ Reads climb the chain, writes don't: obj.x = 1 creates an own property
+→ An array on the prototype is shared by all instances
+→ for...in lists inherited keys too. Object.hasOwn(obj, "k") tells own from inherited
+
+My rule: reads climb the chain, writes stay on the object.
+
+🧠 Bonus trap: what does this log?
+
+const p = { n: 1 };
+const a = Object.create(p);
+a.n = 2;
+console.log(p.n, a.n);
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 09/14 — Array Methods
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
