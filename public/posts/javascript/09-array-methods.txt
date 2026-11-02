@@ -1,0 +1,38 @@
+🎯 JS Cheat Sheet · 09/14: Array Methods
+
+Which array methods change the original array? 🤔
+
+Array methods are the built-in tools to transform, search and reorder a list. Key question: new array, or changed in place? 👇
+
+1️⃣ How they work
+→ map, filter, find, some, every call your callback with (item, index, array)
+→ map returns a new array of the same length. filter keeps the items where the callback is truthy
+→ find returns the first match or undefined. some and every return a boolean
+→ reduce folds the array into one value. Callback: (acc, item). Start value: reduce(fn, 0)
+
+2️⃣ Mutate or copy
+→ Mutate: push, pop, shift, unshift, splice, sort, reverse
+→ Copy: map, filter, slice, concat, toSorted, toReversed
+→ forEach returns undefined, so you can't chain it
+
+3️⃣ Pitfalls
+→ sort() without a compare function sorts as strings: [10, 9, 1] becomes [1, 10, 9]. Use (a, b) => a - b
+→ sort() and reverse() return the same array, not a copy
+→ reduce on an empty array with no start value throws TypeError
+→ Copies are shallow: nested objects are shared
+
+My rule: if a method changes the array, copy it first: [...arr].sort()
+
+🧠 Bonus trap: what does this log?
+
+const a = [3, 1, 2];
+const b = a.sort();
+console.log(a === b);
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 10/14 — Destructuring
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
