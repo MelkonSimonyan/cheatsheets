@@ -1,0 +1,40 @@
+🎯 JS Cheat Sheet · 10/14: Destructuring
+
+Is the spread operator a deep copy? 🤔
+
+Destructuring is syntax that unpacks values from objects and arrays into variables. Spread and rest, both written ..., expand and collect values 👇
+
+1️⃣ How it works
+→ Objects match by name, arrays by position: const { a, b } = obj; const [x, , z] = arr;
+→ Arrays use the iterator: Set and strings work, a plain object throws
+→ Rename { a: id }, nest { user: { name } }, use it in parameters
+→ Spread expands: [...a, 2], { ...o, q: 2 }. Later keys win
+→ Rest collects the remainder and must come last
+
+2️⃣ Edge cases
+→ A default applies only to undefined, not to null, and runs only when needed
+→ Destructuring null or undefined throws TypeError
+→ { ...null } gives {}, but [...null] throws
+→ Object spread copies own enumerable properties, so the prototype is lost
+
+3️⃣ Pitfalls
+→ Spread is shallow, not a deep copy: { ...o }, [...a], Object.assign, slice() copy one level, nested objects stay shared
+→ structuredClone(o) copies deeply, but throws on functions
+→ f({ x }) throws without an argument, so write f({ x } = {})
+
+My rule: copy every level you change, or use structuredClone.
+
+🧠 Bonus trap: what does this log?
+
+const a = { n: { v: 1 } };
+const b = { ...a };
+b.n.v = 2;
+console.log(a.n.v);
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 11/14 — Event Loop
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
