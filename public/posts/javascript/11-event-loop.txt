@@ -1,0 +1,39 @@
+🎯 JS Cheat Sheet · 11/14: Event Loop
+
+Why does setTimeout(f, 0) not run right away? 🤔
+
+The event loop is what lets single-threaded JavaScript handle async work. It decides which job runs next, and it picks one only when the call stack is empty 👇
+
+1️⃣ How it works
+→ Call stack: sync code runs to the end
+→ Timers, network and clicks are handled outside the stack, their callbacks wait in queues
+→ Microtasks (then, await, queueMicrotask): ALL run when the stack is empty
+→ Macrotasks (setTimeout, events): ONE per turn, then microtasks again
+→ The browser can repaint between macrotasks, not during one
+
+2️⃣ Edge cases
+→ The delay is a minimum: setTimeout(f, 0) still waits for the stack and every microtask
+→ A promise callback beats a timer set before it
+→ Code after await runs as a microtask
+→ After five nested timers, browsers force at least 4ms
+
+3️⃣ Pitfalls
+→ A heavy sync loop blocks clicks, repaint and timers. Split the work or use a Web Worker
+→ Microtasks that keep queueing microtasks starve timers and freeze the page
+
+My rule: sync code, then all microtasks, then one macrotask, repeat.
+
+🧠 Bonus trap: what does this log?
+
+console.log("A");
+setTimeout(() => console.log("B"));
+queueMicrotask(() => console.log("C"));
+console.log("D");
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 12/14 — Promises
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
