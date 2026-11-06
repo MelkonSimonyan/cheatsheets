@@ -1,0 +1,38 @@
+🎯 JS Cheat Sheet · 12/14: Promises
+
+What does .then() return? 🤔
+
+A promise is an object for a value that is not ready yet. It starts pending, then settles exactly once: fulfilled with a value or rejected with a reason 👇
+
+1️⃣ How it works
+→ The executor in new Promise(fn) runs synchronously
+→ then callbacks run as microtasks, even on an already settled promise
+→ then returns a NEW promise: it fulfills with the callback's return value and rejects if the callback throws
+→ Return a promise and the chain waits for it
+
+2️⃣ Errors and cleanup
+→ A rejection skips every then until the next catch
+→ catch(f) is then(undefined, f). If f returns a value, the chain continues as fulfilled
+→ finally(f) runs either way, gets no argument and passes the result through. If f throws, that error replaces it
+
+3️⃣ Pitfalls
+→ Forgot return in then: the next then gets undefined
+→ then(ok, fail): fail does not catch errors thrown in ok. End the chain with catch
+→ Unhandled rejection: Node 15+ exits with code 1, browsers log an error
+→ Don't wrap a promise in new Promise, just return it
+
+My rule: always return from then, end the chain with catch.
+
+🧠 Bonus trap: what does this log?
+
+new Promise((res, rej) => {
+  res(1); rej(2); res(3);
+}).then(console.log);
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 13/14 — async / await
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
