@@ -1,0 +1,39 @@
+🎯 JS Cheat Sheet · 13/14: async / await
+
+Why doesn't forEach wait for await? 🤔
+
+async/await is syntax over promises that makes async code read top to bottom. async makes a function return a promise, await pauses it until a promise settles 👇
+
+1️⃣ How it works
+→ The function runs synchronously until its first await
+→ await pauses only that function. It resumes as a microtask, after the current sync code
+→ return fulfills the promise, a throw rejects it
+→ A rejected await throws, so use try/catch/finally
+
+2️⃣ One by one or together
+→ await a(); await b(); runs in order, total time is the sum
+→ await Promise.all([a(), b()]) runs both at once
+→ await works in async functions and at the top level of ES modules
+
+3️⃣ Pitfalls
+→ forEach ignores the promises, so it doesn't wait. Use for...of, or Promise.all(arr.map(...))
+→ In try, return promise skips the catch. Write return await promise
+→ try { f() } misses the error of async f: it returns a rejected promise. Add await
+→ Forgot await: you get a pending promise, and its error goes unhandled
+
+My rule: need order? for...of with await. Need speed? Promise.all.
+
+🧠 Bonus trap: what does this log?
+
+[1, 2].forEach(async n => {
+  await null; console.log(n);
+});
+console.log("done");
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: 14/14 — Promise Combinators
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
