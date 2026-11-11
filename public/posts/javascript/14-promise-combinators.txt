@@ -1,0 +1,37 @@
+🎯 JS Cheat Sheet · 14/14: Promise Combinators
+
+Promise.all, allSettled, race or any: which one do you need? 🤔
+
+Promise combinators are static methods that take an iterable of promises (plain values are allowed) and return one promise. They decide how many results you wait for and what counts as a failure 👇
+
+1️⃣ How they work
+→ all: all values, in input order. Rejects with the first rejection
+→ allSettled: { status, value / reason } for each. Never rejects
+→ race: copies the first one to settle, success or failure
+→ any: the first fulfillment. If all reject: AggregateError, reasons in .errors
+
+2️⃣ Key features
+→ Plain values count as already fulfilled
+→ Results keep input order, not finish order
+→ Empty array: all, allSettled give [], any rejects, race stays pending forever
+
+3️⃣ Pitfalls
+→ Nothing is cancelled: the slower promises keep running. race with a timer is a timeout, but stop the request with AbortController
+→ all fails fast and drops the successful results. Need them? allSettled
+
+My rule: every result, all. Every outcome, allSettled. First to finish, race. First to succeed, any.
+
+🧠 Bonus trap: what does this log?
+
+Promise.any([
+  Promise.reject(1),
+  Promise.reject(2),
+]).catch(e => console.log(e.name));
+
+Answer in the comments 👇
+
+♻️ Save it for your next interview. The printable A4 PDF is in the first comment.
+
+👉 Next: Recap — the full checklist
+
+#FrontendInterview #javascript #frontend #webdevelopment #interviewprep
